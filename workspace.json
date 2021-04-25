@@ -348,5 +348,5 @@
       }
     }
   },
-  "defaultProject": "nx-apollo-angular"
+  "defaultProject": "api"
 }

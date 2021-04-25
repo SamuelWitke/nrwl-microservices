@@ -10,9 +10,6 @@ This project was generated using [Nx](https://nx.dev).
 GraphQL API
 - `npm start api`
 
-[Angular](https://angular.io)
-- `npm start nx-apollo-angular`
-
 [React](https://reactjs.org)
 - `npm start nx-apollo-react`
 
@@ -473,74 +470,6 @@ export class SetFormComponent {
 Again, notice that we've imported services, queries, and typing information from our data-access library to accomplish this.
 
 
-## Create Angular app
-
-Alright, we've laid all of our groundwork, let's spin up an Angular application.
-
-`nx generate @nrwl/angular:application nx-apollo-angular --style css --routing false`
-
-We’ll be using the Apollo client to consume our GraphQL API, so let’s install that. The Apollo team has made it easy for us by supporting the Angular CLI’s add command, which we can invoke using the Nx CLI:
-
-`nx g apollo-angular:ng-add apollo-angular`
-
-If your project is using the Angular CLI, you can use it directly:
-
-`ng add apollo-angular`
-
-When that’s done running, you’ll have a new file in your Angular application named graph.module.ts. Open it up and add the URI of your GraphQL api at the top of this file.
-
-```typescript
-// apps/nx-apollo-angular/src/app/graphql.module.ts
-const uri = 'http://localhost:3333/graphql'; // <-- add the URL of the GraphQL server here
-```
-
-Final step: import our modules, bring those new components into our app component, and add a little styling
-
-```typescript
-<!-- apps/nx-apollo-angular/src/app/app.module.ts -->
-
-import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { AngularFeatureSetsModule } from '@nx-apollo-example/angular/feature-sets';
-import { AppComponent } from './app.component';
-import { GraphQLModule } from './graphql.module';
-
-
-@NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, HttpClientModule, GraphQLModule, AngularFeatureSetsModule],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule {}
-```
-
-```html
-<!-- apps/nx-apollo-angular/src/app/app.component.html -->
-<h1>My Lego Sets</h1>
-<div class="flex">
-  <nx-apollo-example-set-form></nx-apollo-example-set-form>
-  <nx-apollo-example-set-list></nx-apollo-example-set-list>
-</div>
-```
-
-```css
-/* apps/nx-apollo-angular/src/app/app.component.css */
-h1 {
-  font-family: sans-serif;
-  text-align: center;
-}
-
-.flex {
-  display: flex;
-}
-
-nx-apollo-example-set-list {
-  flex: 1;
-  padding: 8px;
-}
-```
 
 If your API isn’t running already, go ahead and start it:
 

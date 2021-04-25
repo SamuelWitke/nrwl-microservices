@@ -7,19 +7,25 @@ import { SetResolver } from './set.resolver';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 
-const rootPath = join(__dirname, '..','..', '..', 'dist', 'apps', 'nx-apollo-react')
+const rootPath = join(
+  __dirname,
+  '..',
+  '..',
+  '..',
+  'dist',
+  'apps',
+  'nx-apollo-react'
+);
 
 @Module({
   imports: [
     ServeStaticModule.forRoot({
       rootPath
     }),
-     GraphQLModule.forRoot({
-      installSubscriptionHandlers: true,
-      autoSchemaFile: 'schema.gql',
-    }),
-
-],
+    GraphQLModule.forRoot({
+      typePaths: ['./**/*.graphql']
+    })
+  ],
   controllers: [AppController],
   providers: [AppService, SetResolver]
 })
