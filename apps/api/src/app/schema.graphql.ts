@@ -1,3 +1,4 @@
+const typeDefs = `
 type Set {
     id: Int!
     name: String
@@ -12,3 +13,5 @@ type Query {
 type Mutation {
     addSet(name: String, year: String, numParts: Int): Set
 }
+`
+export default typeDefs

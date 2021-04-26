@@ -58,8 +58,10 @@
                     "builder": "@nrwl/workspace:run-commands",
                     "options": {
                       "commands": [
-                        {"command": "echo Building the app ..."},
+                        {"command": "echo Building the api ..."},
                         {"command": "nx build api"},
+                        {"command": "echo Building the app ..."},
+                        {"command": "nx build nx-apollo-react"},
                         {"command": "echo Building the docker-image..."},
                         {"command": "docker build -f ./apps/api/Dockerfile . -t api"}
                       ],

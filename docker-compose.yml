@@ -3,4 +3,4 @@ services:
   api:
     image: api
     ports:
-      - '8081:3333'
+      - '3333:3333'

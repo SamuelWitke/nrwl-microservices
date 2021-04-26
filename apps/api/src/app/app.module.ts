@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
-import { GraphQLModule } from '@nestjs/graphql';
-
+import { GraphQLModule, GraphQLDefinitionsFactory } from '@nestjs/graphql';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { SetResolver } from './set.resolver';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
+import typeDefs from './schema.graphql'
 
 const rootPath = join(
   __dirname,
@@ -22,11 +22,34 @@ const rootPath = join(
     ServeStaticModule.forRoot({
       rootPath
     }),
-    GraphQLModule.forRoot({
-      typePaths: ['./**/*.graphql']
-    })
+    GraphQLModule.forRootAsync({
+      useFactory() {
+        return {
+          resolverValidationOptions: {
+            requireResolversForResolveType: false
+          },
+          typeDefs
+          //         typeDefs: `
+          //    type Set {
+          //     id: Int!
+          //     name: String
+          //     year: Int
+          //     numParts: Int
+          // }
+
+          // type Query {
+          //     allSets: [Set]
+          // }
+
+          // type Mutation {
+          //     addSet(name: String, year: String, numParts: Int): Set
+          // }
+          //    `
+        }
+      }
+    }),
   ],
   controllers: [AppController],
   providers: [AppService, SetResolver]
 })
-export class AppModule {}
+export class AppModule { }
