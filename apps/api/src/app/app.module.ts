@@ -29,22 +29,6 @@ const rootPath = join(
             requireResolversForResolveType: false
           },
           typeDefs
-          //         typeDefs: `
-          //    type Set {
-          //     id: Int!
-          //     name: String
-          //     year: Int
-          //     numParts: Int
-          // }
-
-          // type Query {
-          //     allSets: [Set]
-          // }
-
-          // type Mutation {
-          //     addSet(name: String, year: String, numParts: Int): Set
-          // }
-          //    `
         }
       }
     }),

@@ -17,12 +17,6 @@
     "baseUrl": ".",
     "paths": {
       "@nx-apollo-example/api-interfaces": ["libs/api-interfaces/src/index.ts"],
-      "@nx-apollo-example/angular/data-access": [
-        "libs/angular/data-access/src/index.ts"
-      ],
-      "@nx-apollo-example/angular/feature-sets": [
-        "libs/angular/feature-sets/src/index.ts"
-      ],
       "@nx-apollo-example/react/feature-sets": [
         "libs/react/feature-sets/src/index.ts"
       ],

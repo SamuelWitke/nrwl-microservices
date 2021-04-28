@@ -24,12 +24,6 @@
       "tags": [],
       "implicitDependencies": ["nx-apollo-react"]
     },
-    "angular-data-access": {
-      "tags": []
-    },
-    "angular-feature-sets": {
-      "tags": []
-    },
     "react-feature-sets": {
       "tags": []
     },
